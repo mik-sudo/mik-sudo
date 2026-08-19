@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react'
 
 export const StarBackground = () => {
-    const [stars, setStars] = useState([])
-    const [meteors, setMeteors] = useState([])
+    const [particles, setParticles] = useState([])
 
     useEffect(() => {
-        generateStars();
-        generateMeteors();
+        generateParticles();
 
         const handleResize = () => {
-            generateStars();
-            generateMeteors();
+            generateParticles();
         }
 
         window.addEventListener('resize', handleResize);
@@ -20,61 +17,39 @@ export const StarBackground = () => {
         };
     }, [])
 
-    const generateStars = () => {
-        const numStars = Math.floor(window.innerWidth * window.innerHeight / 10000)
-        const newStars = []
-        
-        for (let i = 0; i < numStars; i++) {
-            newStars.push({
-                id: i,
-                size: Math.random() * 3 + 1,
-                x: Math.random() * 100,
-                y: Math.random() * 100,
-                opacity: Math.random() * 0.5 + 0.5,
-                animationDuration: Math.random() * 4 + 2,
-            })
-        }
-        setStars(newStars);
-    }
+    const generateParticles = () => {
+        const count = Math.floor((window.innerWidth * window.innerHeight) / 18000);
+        const newParticles = [];
 
-    const generateMeteors = () => {
-        const numMeteors = 3
-        const newMeteors = []
-        
-        for (let i = 0; i < numMeteors; i++) {
-            newMeteors.push({
+        for (let i = 0; i < count; i++) {
+            const duration = Math.random() * 10 + 12;
+            const delay = -Math.random() * duration;
+
+            newParticles.push({
                 id: i,
-                size: Math.random() * 2 + 1,
+                size: Math.random() * 3 + 3,
                 x: Math.random() * 100,
-                y: Math.random() * 20,
-                delay: Math.random() * 15,
-                animationDuration: Math.random() * 3 + 3,
+                y: Math.random() * 100 + 100,
+                opacity: Math.random() * 0.3 + 0.7,
+                duration: duration,
+                delay: delay
             })
         }
-        setMeteors(newMeteors);
+
+        setParticles(newParticles);
     }
 
     return (
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-            {stars.map(star => (
-                <div key={star.id} className="star animate-pulse-subtle" style={{
-                    width: star.size + "px",
-                    height: star.size + "px",
-                    left: star.x + "%",
-                    top: star.y + "%",
-                    opacity: star.opacity,
-                    animationDuration: star.animationDuration + "s",
-                }}/>
-            ))}
-
-            {meteors.map(meteor => (
-                <div key={meteor.id} className="meteor animate-meteor" style={{
-                    width: meteor.size * 50 + "px",
-                    height: meteor.size * 2 + "px",
-                    left: meteor.x + "%",
-                    top: meteor.y + "%",
-                    animationDelay: meteor.delay,
-                    animationDuration: meteor.animationDuration + "s",
+            {particles.map((p) => (
+                <div key={p.id} className="particle animate-rise" style={{
+                    width: `${p.size}px`,
+                    height: `${p.size}px`,
+                    left: `${p.x}%`,
+                    top: `${p.y}%`,
+                    opacity: p.opacity,
+                    animationDuration: `${p.duration}s`,
+                    animationDelay: `${p.delay}s`,
                 }}/>
             ))}
         </div>
