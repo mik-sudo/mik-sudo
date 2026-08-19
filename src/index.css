@@ -161,7 +161,8 @@
   -webkit-text-fill-color: transparent;
 }
 
-@utility cosmic-button {
+.cosmic-button {
+  display: inline-block;
   padding: 0.5rem 1.5rem;
   border-radius: 9999px;
   background-color: hsl(var(--primary));
@@ -169,11 +170,13 @@
   font-weight: 500;
   transition: all 0.3s ease;
 }
-@utility cosmic-button:hover {
+
+.cosmic-button:hover {
   box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
   transform: scale(1.05);
 }
-@utility cosmic-button:active {
+
+.cosmic-button:active {
   transform: scale(0.95);
 }
 
