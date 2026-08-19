@@ -13,14 +13,11 @@ export const HeroSection = () => {
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-4">
                         A Computer Engineering student with a foundation in both software and hardware-related skills.
-                        Experienced in embedded systems and full-stack development using C++, Python, Javascript, HTML, and CSS in software development
-                        and hardware integration with devices such as ESP32 and Arduino while also competent in Computer networking. I am committed
-                        to learn and apply my skills in delivering an outstanding result in any given task.
                     </p>
 
                     <div className="pt-4 opacity-0 animate-fade-in-delay-4">
                         <a href="#projects" className="cosmic-button">
-                            This is my projects
+                            View my Projects
                         </a>
                     </div>
                 </div>
