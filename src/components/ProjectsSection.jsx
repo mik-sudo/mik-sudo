@@ -1,3 +1,4 @@
+import busterminal from "../assets/busterminal.png"
 
 const projects = [
     {
@@ -11,7 +12,7 @@ const projects = [
         id: 2,
         title: "Bus Terminal Ticketing System",
         description: "System for optimizing bus fare tickets to quicken speed-up costumer payments.",
-        image: "/",
+        image: busterminal,
         tags: ["C++", "MySQL"]
     },
     {

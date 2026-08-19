@@ -56,7 +56,7 @@ export const Navbar = () => {
                     isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
                     )}
                 >
-                    <div className="flex flex-col space-y-8 text-xl">
+                    <div className="flex flex-col space-y-8 text-xl font-bold">
                     {navItems.map((item, key) => (
                         <a href={item.href} key={key} className="text-foreground/80 hover:text-primary transition-colors duration-300"
                             onClick={() => setIsMenuOpen(false)}
